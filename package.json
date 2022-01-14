@@ -1,0 +1,42 @@
+{
+  "name": "@jvanderen1/compare-versions",
+  "version": "1.0.0",
+  "description": "Compare semver version strings to find greater, equal or lesser.",
+  "keywords": [
+    "semver",
+    "version",
+    "compare",
+    "browser",
+    "node"
+  ],
+  "homepage": "https://github.com/jvanderen1/compare-versions#readme",
+  "bugs": {
+    "url": "https://github.com/jvanderen1/compare-versions/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jvanderen1/compare-versions.git"
+  },
+  "license": "MIT",
+  "author": "<livetoscout@gmail.com>",
+  "sideEffects": false,
+  "main": "src/index.js",
+  "module": "src/index.mjs",
+  "types": "src/index.d.ts",
+  "files": [
+    "src/index.js",
+    "src/index.mjs",
+    "src/index.d.ts"
+  ],
+  "scripts": {
+    "test": "c8 --reporter=lcov mocha"
+  },
+  "devDependencies": {
+    "c8": "^7.10.0",
+    "mocha": "^9.0.0"
+  },
+  "volta": {
+    "node": "16.13.2",
+    "yarn": "1.22.17"
+  }
+}
