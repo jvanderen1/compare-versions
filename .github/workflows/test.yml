@@ -1,0 +1,65 @@
+name: 'Test'
+
+on:
+  pull_request:
+  workflow_call:
+  push:
+    branches: ['main']
+
+jobs:
+  pretty-check:
+    name: 'Pretty Test'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v3
+
+      - name: 'Install Dependencies Action'
+        uses: ./.github/actions/install-dependencies
+
+      - name: 'Run Pretty Check'
+        run: pnpm run pretty:check
+
+  types-test:
+    name: 'Types Test'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v3
+
+      - name: 'Install Dependencies Action'
+        uses: ./.github/actions/install-dependencies
+
+      - name: 'Run Types Test'
+        run: pnpm run test:types
+
+  unit-test:
+    name: 'Unit Test'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v3
+
+      - name: 'Install Dependencies Action'
+        uses: ./.github/actions/install-dependencies
+
+      - name: 'Run Unit Test'
+        run: pnpm run test:unit --ci --collectCoverage
+
+      - name: 'Coveralls'
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  lint-test:
+    name: 'Lint Test'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v3
+
+      - name: 'Install Dependencies Action'
+        uses: ./.github/actions/install-dependencies
+
+      - name: 'Run Lint Check'
+        run: pnpm run lint:check

@@ -1,0 +1,5 @@
+export type { EqualityInteger } from './EqualityInteger'
+export type { Operator } from './Operator'
+export type { OperatorToEqualityInteger } from './OperatorToEqualityInteger'
+export type { Version } from './Version'
+export type { Wildcard } from './Wildcard'

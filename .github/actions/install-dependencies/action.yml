@@ -1,0 +1,33 @@
+name: 'Install Dependencies Action'
+description: 'Installs all pnpm packages needed.'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: 'Checkout'
+      uses: actions/checkout@v3
+
+    - name: 'Install pnpm'
+      uses: pnpm/action-setup@v2.2.2
+      id: pnpm-install
+      with:
+        version: 7
+        run_install: false
+
+    - name: 'Get pnpm Store Directory'
+      shell: bash
+      id: pnpm-cache
+      run: |
+        echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
+
+    - name: 'Setup pnpm Cache'
+      uses: actions/cache@v3
+      with:
+        path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-pnpm-store-
+
+    - name: 'Install Dependencies'
+      shell: bash
+      run: pnpm install

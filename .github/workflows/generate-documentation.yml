@@ -1,0 +1,55 @@
+name: 'Generate Documentation Workflow'
+
+on:
+  release:
+    types: [created]
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  call-build-workflow:
+    name: 'Build'
+    uses: ./.github/workflows/build.yml
+
+  call-test-workflow:
+    name: 'Test'
+    uses: ./.github/workflows/test.yml
+
+  generate-documentation:
+    name: 'Generate Documentation'
+    runs-on: ubuntu-latest
+    needs: [call-build-workflow, call-test-workflow]
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v3
+
+      - name: 'Install Dependencies'
+        uses: ./.github/actions/install-dependencies
+
+      - name: 'Run Typedoc'
+        run: pnpm run docs
+
+      - name: 'Upload Github Pages Artifact'
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./docs
+
+  deploy:
+    name: 'Deploy Documentation'
+    runs-on: ubuntu-latest
+    needs: generate-documentation
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: 'Deploy to GitHub Pages'
+        id: deployment
+        uses: actions/deploy-pages@v1

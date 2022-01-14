@@ -1,0 +1,15 @@
+{
+  "include": ["./src/**/*.ts"],
+  "exclude": ["./node_modules/"],
+  "compilerOptions": {
+    "lib": ["es2020"],
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true
+  },
+  "typedocOptions": {
+    "darkHighlightTheme": "dark-plus",
+    "entryPoints": ["src/"],
+    "out": "docs"
+  }
+}
