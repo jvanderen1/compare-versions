@@ -20,10 +20,10 @@
   "license": "MIT",
   "author": "<livetoscout@gmail.com>",
   "sideEffects": false,
-  "main": "dist/unstated-next.cjs.js",
-  "module": "dist/unstated-next.esm.js",
+  "main": "dist/compare-versions.cjs.js",
+  "module": "dist/compare-versions.esm.js",
   "source": "src/index.ts",
-  "browser": "dist/unstated-next.umd.js",
+  "browser": "dist/compare-versions.umd.js",
   "types": "dist/types.d.ts",
   "files": [
     "dist/"
