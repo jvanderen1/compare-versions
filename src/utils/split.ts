@@ -1,6 +1,6 @@
 import { indexOrEnd } from './indexOrEnd'
 
-export const split = (v) => {
+export const split = (v: string) => {
   const c = v.replace(/^v/, '').replace(/\+.*$/, '')
   const patchIndex = indexOrEnd(c, '-')
   const arr = c.substring(0, patchIndex).split('.')
