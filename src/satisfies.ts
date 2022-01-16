@@ -1,7 +1,11 @@
 import { compare } from './compare'
-import { compareSegments, compareStrings, validateAndParse } from './utils'
 import { OperatorType } from './types'
-import { isOperatorType } from './utils'
+import {
+  compareSegments,
+  compareStrings,
+  isOperatorType,
+  validateAndParse,
+} from './utils'
 
 export const satisfies = (v: string, r: string) => {
   // if no range operator then "="

@@ -1,6 +1,4 @@
-import { validateAndParse } from './utils'
-import { split } from './utils'
-import { tryParse } from './utils'
+import { split, tryParse, validateAndParse } from './utils'
 
 export const compareVersions = (v1: string, v2: string) => {
   validateAndParse(v1)
