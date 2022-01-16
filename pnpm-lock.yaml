@@ -7,6 +7,7 @@ specifiers:
   c8: 7.11.0
   mocha: 9.1.4
   parcel: 2.0.0-nightly.980
+  prettier: 2.5.1
   typescript: 4.5.4
 
 devDependencies:
@@ -16,6 +17,7 @@ devDependencies:
   c8: 7.11.0
   mocha: 9.1.4
   parcel: 2.0.0-nightly.980
+  prettier: 2.5.1
   typescript: 4.5.4
 
 packages:
@@ -4038,6 +4040,12 @@ packages:
   /prelude-ls/1.1.2:
     resolution: {integrity: sha1-IZMqVJ9eUv/ZqCf1cOBL5iqX2lQ=}
     engines: {node: '>= 0.8.0'}
+    dev: true
+
+  /prettier/2.5.1:
+    resolution: {integrity: sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
     dev: true
 
   /process-nextick-args/2.0.1:

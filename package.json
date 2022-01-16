@@ -32,10 +32,12 @@
     "build": "parcel build --no-source-maps",
     "clean": "pnpm run clean:dist && pnpm run clean:parcel-cache && pnpm run clean:types && pnpm run clean:node-modules",
     "clean-install": "pnpm run clean && pnpm install",
-    "clean:dist": "rimraf dist/",
-    "clean:node-modules": "rimraf node_modules/",
-    "clean:parcel-cache": "rimraf .parcel-cache/",
+    "clean:dist": "rimraf ./dist/",
+    "clean:node-modules": "rimraf ./node_modules/",
+    "clean:parcel-cache": "rimraf ./.parcel-cache/",
     "clean:types": "tsc --build --clean",
+    "pretty": "prettier --check \"./src/**/*.{ts,tsx}\"",
+    "pretty:fix": "prettier --write \"./src/**/*.{ts,tsx}\"",
     "test": "c8 --reporter=lcov mocha"
   },
   "devDependencies": {
@@ -45,6 +47,7 @@
     "c8": "7.11.0",
     "mocha": "9.1.4",
     "parcel": "2.0.0-nightly.980",
+    "prettier": "2.5.1",
     "typescript": "4.5.4"
   },
   "volta": {
