@@ -1,8 +1,18 @@
-import assert from 'assert';
-import { validate } from '../src';
+import { validate } from './validate'
 
-describe('validate versions', () => {
-  [
+type DataType = [any, Boolean]
+type DataSetType = Array<DataType>
+
+const runTests = (...dataSet: DataSetType) => {
+  describe.each(dataSet)(`validate('%s')`, (v, expected) => {
+    it(`returns ${expected}`, () => {
+      expect(validate(v)).toStrictEqual(expected)
+    })
+  })
+}
+
+describe('validate', () => {
+  runTests(
     [undefined, false],
     [null, false],
     [42, false],
@@ -24,9 +34,5 @@ describe('validate versions', () => {
     ['2020', true],
     ['=1.0', false],
     ['>1.0.0', false],
-  ].forEach(([v, expected]) => {
-    it(`${v}`, () => {
-      assert.equal(validate(v), expected);
-    });
-  });
-});
+  )
+})

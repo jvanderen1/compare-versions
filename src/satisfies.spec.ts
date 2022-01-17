@@ -1,8 +1,18 @@
-import assert from 'assert';
-import { satisfies } from '../src';
+import { satisfies } from './satisfies'
 
-describe('validate versions', () => {
-  [
+type DataType = [string, string, Boolean]
+type DataSetType = Array<DataType>
+
+const runTests = (...dataSet: DataSetType) => {
+  describe.each(dataSet)(`satisfies('%s', '%s')`, (v, m, expected) => {
+    it(`returns ${expected}`, () => {
+      expect(satisfies(v, m)).toStrictEqual(expected)
+    })
+  })
+}
+
+describe('satisfies', () => {
+  runTests(
     ['1.0.0', '^1', true],
     ['1.0.0', '^1.0', true],
     ['1.0.0', '^1.0.0', true],
@@ -51,9 +61,5 @@ describe('validate versions', () => {
     ['2.0.0', '<2.x.x', false],
     ['2.0.0', '<=2.x.x', true],
     ['2.0.0', '>2.x.x', false],
-  ].forEach(([v, m, expected]) => {
-    it(`${v} satisfies ${m}`, () => {
-      assert.equal(satisfies(v, m), expected);
-    });
-  });
-});
+  )
+})
