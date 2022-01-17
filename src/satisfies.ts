@@ -8,11 +8,9 @@ import {
 } from './utils'
 
 export const satisfies = (v: string, r: string) => {
-  // if no range operator then "="
   const match = r.match(/^([<>=~^]+)/)
   const op = <OperatorType | string>(match ? match[1] : '=')
 
-  // if gt/lt/eq then operator compare
   if (isOperatorType(op)) {
     return compare(v, r, op)
   }
