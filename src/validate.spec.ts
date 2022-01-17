@@ -4,7 +4,7 @@ type DataType = [any, Boolean]
 type DataSetType = Array<DataType>
 
 const runTests = (...dataSet: DataSetType) => {
-  describe.each(dataSet)(`validate('%s')`, (v, expected) => {
+  describe.each(dataSet)(`validate(%s)`, (v, expected) => {
     it(`returns ${expected}`, () => {
       expect(validate(v)).toStrictEqual(expected)
     })

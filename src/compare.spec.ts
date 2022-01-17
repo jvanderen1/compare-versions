@@ -6,7 +6,7 @@ type DataSetType = Array<DataType>
 
 const runTests = (...dataSet: DataSetType) => {
   describe.each(dataSet)(
-    `compare('%s', '%s', '%s')`,
+    `compare(%s, %s, %s)`,
     (v1, v2, operator, expected) => {
       it(`returns ${expected}`, () => {
         expect(compare(v1, v2, operator)).toStrictEqual(expected)
