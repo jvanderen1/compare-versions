@@ -1,5 +1,5 @@
 {
-  "name": "@jvanderen1/compare-versions",
+  "name": "compare-versions-ts",
   "version": "1.0.0",
   "description": "Compare semver version strings to find greater, equal or lesser.",
   "keywords": [
@@ -20,8 +20,8 @@
   "license": "MIT",
   "author": "<livetoscout@gmail.com>",
   "sideEffects": false,
-  "main": "dist/compare-versions.cjs",
-  "module": "dist/compare-versions.mjs",
+  "main": "dist/compare-versions-ts.cjs",
+  "module": "dist/compare-versions-ts.mjs",
   "source": "src/index.ts",
   "types": "dist/types.d.ts",
   "files": [
@@ -40,8 +40,8 @@
     "pretty": "prettier --check \"./src/**/*.{ts,tsx}\"",
     "pretty:fix": "prettier --write \"./src/**/*.{ts,tsx}\"",
     "test": "pnpm run test:unit && pnpm run test:types",
-    "test:unit": "jest",
-    "test:types": "tsc --skipLibCheck --noEmit"
+    "test:types": "tsc --skipLibCheck --noEmit",
+    "test:unit": "jest"
   },
   "devDependencies": {
     "@parcel/core": "2.6.2",
