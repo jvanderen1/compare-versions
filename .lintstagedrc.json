@@ -1,4 +1,4 @@
 {
-  "*.ts": ["eslint --ignore-path .gitignore --cache --fix"],
-  "!(.husky)/*": ["prettier --ignore-path .gitignore --write"]
+  "*.ts": ["npm run lint -- --fix"],
+  "!(.husky)/*": ["npm run pretty -- --write"]
 }
