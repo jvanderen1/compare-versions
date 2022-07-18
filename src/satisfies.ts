@@ -1,17 +1,17 @@
 import { compare } from './compare'
-import { OperatorType } from './types'
+import type { Version } from './types'
 import {
   compareSegments,
   compareStrings,
-  isOperatorType,
+  isOperator,
   validateAndParse,
 } from './utils'
 
 export const satisfies = (v: string, r: string) => {
   const match = r.match(/^([<>=~^]+)/)
-  const op = <OperatorType | string>(match ? match[1] : '=')
+  const op = <Version>(match ? match[1] : '=')
 
-  if (isOperatorType(op)) {
+  if (isOperator(op)) {
     return compare(v, r, op)
   }
 

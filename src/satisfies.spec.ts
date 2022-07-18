@@ -1,6 +1,6 @@
 import { satisfies } from './satisfies'
 
-type DataType = [string, string, Boolean]
+type DataType = [string, string, boolean]
 type DataSetType = Array<DataType>
 
 const runTests = (...dataSet: DataSetType) => {

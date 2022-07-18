@@ -1,6 +1,6 @@
 import { validate } from './validate'
 
-type DataType = [any, Boolean]
+type DataType = [unknown, boolean]
 type DataSetType = Array<DataType>
 
 const runTests = (...dataSet: DataSetType) => {

@@ -1,1 +1,1 @@
-export const WILDCARDS = ['*', 'x', 'X']
+export const WILDCARDS = ['*', 'x', 'X'] as const

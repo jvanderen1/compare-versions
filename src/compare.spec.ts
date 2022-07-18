@@ -1,7 +1,7 @@
 import { compare } from './compare'
-import type { OperatorType } from './types'
+import type { Operator } from './types'
 
-type DataType = [string, string, OperatorType, Boolean]
+type DataType = [string, string, Operator, boolean]
 type DataSetType = Array<DataType>
 
 const runTests = (...dataSet: DataSetType) => {

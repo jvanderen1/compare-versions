@@ -1,6 +1,6 @@
 import { SEMVER } from './constants'
 
-export const validate = (version: any) => {
+export const validate = (version: unknown) => {
   return (
     typeof version === 'string' &&
     /^[v\d]/.test(version) &&

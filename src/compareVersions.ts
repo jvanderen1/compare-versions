@@ -1,6 +1,7 @@
+import type { EqualityInteger } from './types'
 import { split, tryParse, validateAndParse } from './utils'
 
-export const compareVersions = (v1: string, v2: string) => {
+export const compareVersions = (v1: string, v2: string): EqualityInteger => {
   validateAndParse(v1)
   validateAndParse(v2)
 
@@ -28,25 +29,28 @@ export const compareVersions = (v1: string, v2: string) => {
     const p2 = sp2.split('.').map(tryParse)
 
     for (let i = 0; i < Math.max(p1.length, p2.length); i += 1) {
+      const p1V = p1[i]
+      const p2V = p2[i]
+
       if (
-        p1[i] === undefined ||
-        (typeof p2[i] === 'string' && typeof p1[i] === 'number')
+        p1V === undefined ||
+        (typeof p2V === 'string' && typeof p1V === 'number')
       ) {
         return -1
       }
 
       if (
-        p2[i] === undefined ||
-        (typeof p1[i] === 'string' && typeof p2[i] === 'number')
+        p2V === undefined ||
+        (typeof p1V === 'string' && typeof p2V === 'number')
       ) {
         return 1
       }
 
-      if (p1[i] > p2[i]) {
+      if (p1V > p2V) {
         return 1
       }
 
-      if (p2[i] > p1[i]) {
+      if (p2V > p1V) {
         return -1
       }
     }

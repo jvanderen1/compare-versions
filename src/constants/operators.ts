@@ -1,1 +1,1 @@
-export const OPERATORS = ['>', '>=', '=', '<=', '<']
+export const OPERATORS = ['>', '>=', '=', '<=', '<'] as const
