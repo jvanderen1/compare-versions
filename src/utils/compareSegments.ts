@@ -1,5 +1,6 @@
-import type { EqualityInteger } from '../types'
 import { compareStrings } from './compareStrings'
+
+import type { EqualityInteger } from '../types'
 
 export const compareSegments = (
   a: [string, string],

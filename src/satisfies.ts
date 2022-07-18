@@ -1,11 +1,12 @@
 import { compare } from './compare'
-import type { Version } from './types'
 import {
   compareSegments,
   compareStrings,
   isOperator,
   validateAndParse,
 } from './utils'
+
+import type { Version } from './types'
 
 export const satisfies = (v: string, r: string) => {
   const match = r.match(/^([<>=~^]+)/)
