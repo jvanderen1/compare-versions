@@ -1,6 +1,6 @@
 import { validate } from './'
 
-type DataType = [unknown, boolean]
+type DataType = [string, boolean]
 type DataSetType = Array<DataType>
 
 const runTests = (...dataSet: DataSetType) => {
@@ -13,12 +13,6 @@ const runTests = (...dataSet: DataSetType) => {
 
 describe('validate', () => {
   runTests(
-    [undefined, false],
-    [null, false],
-    [42, false],
-    [{}, false],
-    [[], false],
-    [() => undefined, false],
     ['foo', false],
     ['6.3.', false],
     ['1.2.3a', false],
