@@ -9,9 +9,11 @@ import { compare } from './'
 
 import type { Version } from '../types'
 
+const temp = '='
+
 export const satisfies = (v: string, r: string) => {
   const match = r.match(/^([<>=~^]+)/)
-  const op = <Version>(match ? match[1] : '=')
+  const op = <Version>(match ? match[1] : temp)
 
   if (isOperator(op)) {
     return compare(v, r, op)
