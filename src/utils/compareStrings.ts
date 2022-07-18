@@ -1,5 +1,4 @@
-import { isWildcard } from './isWildcard'
-import { tryParse } from './tryParse'
+import { isWildcard, tryParse } from './'
 
 import type { EqualityInteger } from '../types'
 

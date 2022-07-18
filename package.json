@@ -18,7 +18,7 @@
     "url": "https://github.com/jvanderen1/compare-versions.git"
   },
   "license": "MIT",
-  "author": "<livetoscout@gmail.com>",
+  "author": "<jvanderen1@gmail.com>",
   "sideEffects": false,
   "main": "dist/compare-versions-ts.cjs",
   "module": "dist/compare-versions-ts.mjs",

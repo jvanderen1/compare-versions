@@ -1,4 +1,4 @@
-import { indexOrEnd } from './indexOrEnd'
+import { indexOrEnd } from './'
 
 export const split = (v: string) => {
   const c = v.replace(/^v/, '').replace(/\+.*$/, '')

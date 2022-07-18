@@ -1,6 +1,6 @@
 import { compare } from './compare'
 
-import type { Operator } from './types'
+import type { Operator } from '../types'
 
 type DataType = [string, string, Operator, boolean]
 type DataSetType = Array<DataType>

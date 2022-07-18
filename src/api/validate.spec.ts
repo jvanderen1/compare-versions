@@ -1,4 +1,4 @@
-import { validate } from './validate'
+import { validate } from './'
 
 type DataType = [unknown, boolean]
 type DataSetType = Array<DataType>

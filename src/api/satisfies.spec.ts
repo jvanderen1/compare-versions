@@ -1,4 +1,4 @@
-import { satisfies } from './satisfies'
+import { satisfies } from './'
 
 type DataType = [string, string, boolean]
 type DataSetType = Array<DataType>

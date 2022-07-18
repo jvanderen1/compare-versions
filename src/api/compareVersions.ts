@@ -1,6 +1,6 @@
-import { split, tryParse, validateAndParse } from './utils'
+import { split, tryParse, validateAndParse } from '../utils'
 
-import type { EqualityInteger } from './types'
+import type { EqualityInteger } from '../types'
 
 export const compareVersions = (v1: string, v2: string): EqualityInteger => {
   validateAndParse(v1)
