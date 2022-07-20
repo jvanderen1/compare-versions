@@ -1,4 +1,4 @@
 {
-  "*": ["pnpm run lint --fix"],
+  "*.ts": ["pnpm run lint --fix"],
   "!(.husky)/*": ["pnpm run pretty --write"]
 }
