@@ -23,8 +23,8 @@ import type { EqualityInteger } from '../types'
  * *\/
  * ```
  *
- * @param v1 The first version to compare.
- * @param v2 The second version to compare.
+ * @param v1 The first semantic version to compare.
+ * @param v2 The second semantic version to compare.
  * @returns An integer representation of `v1` compared to `v2`
  * | Integer | Semantics |
  * | --- | --- |
