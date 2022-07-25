@@ -2,6 +2,36 @@ import { split, tryParse, validateAndParse } from '../utils'
 
 import type { EqualityInteger } from '../types'
 
+/**
+ * @example
+ * ```ts
+ * compareVersions('11.1.1', '10.0.0') //  1
+ * compareVersions('10.0.0', '10.0.0') //  0
+ * compareVersions('10.0.0', '11.1.1') // -1
+ * ```
+ *
+ * @example
+ * ```ts
+ * const versions = ['1.5.19', '1.2.3', '1.5.5']
+ * const sorted = versions.sort(compareVersions)
+ * /*
+ *  [
+ *    '1.2.3',
+ *    '1.5.5',
+ *    '1.5.19'
+ *  ]
+ * *\/
+ * ```
+ *
+ * @param v1 The first version to compare.
+ * @param v2 The second version to compare.
+ * @returns An integer representation of `v1` compared to `v2`
+ * | Integer | Semantics |
+ * | --- | --- |
+ * | -1 | Less Than |
+ * | 0 | Equal To |
+ * | 1 | Greater Than |
+ */
 export const compareVersions = (v1: string, v2: string): EqualityInteger => {
   validateAndParse(v1)
   validateAndParse(v2)

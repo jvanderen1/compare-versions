@@ -1,5 +1,5 @@
 {
-  "name": "compare-versions-ts",
+  "name": "@jvanderen1/compare-versions",
   "version": "1.0.0",
   "description": "Compare semver version strings to find greater, equal or lesser.",
   "keywords": [
