@@ -20,9 +20,10 @@
   "license": "MIT",
   "author": "<jvanderen1@gmail.com>",
   "sideEffects": false,
-  "main": "dist/compare-versions-ts.cjs",
-  "module": "dist/compare-versions-ts.mjs",
+  "main": "dist/compare-versions.cjs",
+  "module": "dist/compare-versions.mjs",
   "source": "src/index.ts",
+  "browser": "dist/compare-versions.umd.js",
   "types": "dist/types.d.ts",
   "files": [
     "dist/"

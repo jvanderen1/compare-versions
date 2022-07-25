@@ -1,10 +1,13 @@
-# compare-versions
+# @jvanderen1/compare-versions
 
 [//]: # '![Build Status](https://github.com/omichelsen/compare-versions/actions/workflows/ci.yml/badge.svg)'
 [//]: # '[![Coverage Status](https://coveralls.io/repos/omichelsen/compare-versions/badge.svg?branch=master&service=github)](https://coveralls.io/github/omichelsen/compare-versions?branch=master)'
 [//]: # '[![npm bundle size (minified + gzip)](https://img.shields.io/bundlephobia/minzip/compare-versions.svg)](https://bundlephobia.com/result?p=compare-versions)'
 
-Compare [semver](https://semver.org/) version strings to find greater, equal or lesser. Runs in the browser as well as Node.ts/React Native etc. Has no dependencies and is tiny.
+Compare [semver](https://semver.org/) version strings to find greater, equal or lesser.
+- Runs in any Javascript environment.
+- No dependencies.
+- Tiny build size.
 
 Supports the full semver specification including versions with different number of digits like `1.0.0`, `1.0`, `1` and pre-releases like `1.0.0-alpha`. Additionally supports the following variations:
 
@@ -13,26 +16,22 @@ Supports the full semver specification including versions with different number 
 - Any leading `v` is ignored, e.g. `v1.0` is interpreted as `1.0`.
 - Leading zero is ignored, e.g. `1.01.1` is interpreted as `1.1.1`.
 
-## Install
+## Install ⬇️
 
 ```shell
 npm install @jvanderen1/compare-versions
 ```
 
-## Documentation
+## Documentation 📕
 
 Please visit ...
 
-### Browser
+## Compatability 🤝
 
-If included directly in the browser, `compareVersions()` is available on the global window:
+The following bundles are generated:
 
-```html
-<script src=https://unpkg.com/compare-versions></script>
-<script>
-  window.compareVersions('11.0.0', '10.0.0');
-  window.compareVersions.compare('11.0.0', '10.0.0', '>');
-  window.compareVersions.validate('11.0.0');
-  window.compareVersions.satisfies('1.2.0', '^1.0.0');
-</script>
-```
+| Module Type | File Name |
+| --- | --- |
+| ESM | compare-versions.mjs |
+| CommonJS | compare-versions.cjs |
+| UMD | compare-versions.umd.js |
