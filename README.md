@@ -1,5 +1,3 @@
-# @jvanderen1/compare-versions
-
 [//]: # '![Build Status](https://github.com/omichelsen/compare-versions/actions/workflows/ci.yml/badge.svg)'
 [//]: # '[![Coverage Status](https://coveralls.io/repos/omichelsen/compare-versions/badge.svg?branch=master&service=github)](https://coveralls.io/github/omichelsen/compare-versions?branch=master)'
 [//]: # '[![npm bundle size (minified + gzip)](https://img.shields.io/bundlephobia/minzip/compare-versions.svg)](https://bundlephobia.com/result?p=compare-versions)'
