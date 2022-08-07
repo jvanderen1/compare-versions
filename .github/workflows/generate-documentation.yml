@@ -7,7 +7,7 @@ on:
 
 jobs:
   call-install-dependencies:
-    uses: ./.github/workflows/install-dependencies.yml@main
+    uses: ./.github/workflows/install-dependencies.yml
   
   call-test:
     uses: ./.github/workflows/test.yml
