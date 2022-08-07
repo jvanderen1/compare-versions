@@ -1,0 +1,39 @@
+name: Test Workflow
+
+on:
+  - workflow_call
+
+jobs:
+  call-install-dependencies:
+    uses: ./.github/workflows/install-dependencies.yml@main
+
+  pretty-check: 
+    name: Pretty Test Job
+    runs-on: ubuntu-latest
+    needs: call-install-dependencies
+    steps:
+      - name: Run pretty check
+        run: pnpm run pretty:check
+
+  types-test:
+    name: Types Test Job
+    runs-on: ubuntu-latest
+    needs: call-install-dependencies
+    steps:
+      - name: Run test types
+        run: pnpm run test:types
+
+  unit-test:
+    name: Unit Test Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run test unit
+        run: pnpm run test:unit
+
+  lint-test:
+    name: Lint Test Job
+    runs-on: ubuntu-latest
+    needs: call-install-dependencies
+    steps:
+      - name: Run lint check
+        run: pnpm run lint:check

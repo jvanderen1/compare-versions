@@ -1,0 +1,20 @@
+name: Generate Documentation Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  call-install-dependencies:
+    uses: ./.github/workflows/install-dependencies.yml@main
+  
+  call-test:
+    uses: ./.github/workflows/test.yml
+
+  generate-documentation:
+    name: Generate Documentation Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo success
+        run: echo "success!!"
