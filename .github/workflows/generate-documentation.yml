@@ -9,7 +9,7 @@ on:
 jobs:
   call-install-dependencies:
     runs-on: ubuntu-latest
-    uses: ./.github/workflows/install-dependencies.yml
+    uses: ./.github/actions/install-dependencies.yml
 
   # call-test:
   #   uses: ./.github/workflows/test.yml
@@ -18,7 +18,7 @@ jobs:
   generate-documentation:
     name: 'Generate Documentation Job'
     runs-on: ubuntu-latest
-    needs: call-instal
+    needs: call-install-dependencies
     steps:
       - name: Echo success
         run: echo "success!!"

@@ -1,4 +1,4 @@
-name: Install Dependencies Workflow
+name: 'Install Dependencies Action'
 description: 'Installs all pnpm packages needed.'
 
 on:
