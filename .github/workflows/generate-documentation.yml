@@ -1,5 +1,5 @@
 name: 'Generate Documentation Workflow'
-description: 'Generates documentation for the compare-versions'
+# description: 'Generates documentation for the compare-versions'
 
 on:
   push:
