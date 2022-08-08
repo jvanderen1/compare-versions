@@ -10,14 +10,14 @@ jobs:
   call-install-dependencies:
     uses: ./.github/workflows/install-dependencies.yml
   
-  call-test:
-    uses: ./.github/workflows/test.yml
-    needs: call-install-dependencies
+  # call-test:
+  #   uses: ./.github/workflows/test.yml
+  #   needs: call-install-dependencies
 
   generate-documentation:
     name: "Generate Documentation Job"
     runs-on: ubuntu-latest
-    needs: call-test
+    needs: call-install-dependencies
     steps:
       - name: Echo success
         run: echo "success!!"
