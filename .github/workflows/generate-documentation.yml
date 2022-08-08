@@ -1,5 +1,4 @@
 name: 'Generate Documentation Workflow'
-# description: 'Generates documentation for the compare-versions'
 
 on:
   push:
@@ -8,19 +7,20 @@ on:
 
 jobs:
   call-install-dependencies-action:
+    name: 'Install Dependencies'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/install-dependencies
 
-  # call-test:
-  #   uses: ./.github/workflows/test.yml
-  #   needs: call-install-dependencies
+  call-test-workflow:
+    uses: ./.github/workflows/test.yml
+    needs: call-install-dependencies-action
 
   generate-documentation:
     name: 'Generate Documentation Job'
     runs-on: ubuntu-latest
-    needs: call-install-dependencies-action
+    needs: call-test-workflow
     steps:
       - name: Echo success
         run: echo "success!!"
