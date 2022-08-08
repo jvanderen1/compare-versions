@@ -1,4 +1,5 @@
-name: Generate Documentation Workflow
+name: "Generate Documentation Workflow"
+description: "Generates documentation for the compare-versions"
 
 on:
   push:
@@ -11,10 +12,12 @@ jobs:
   
   call-test:
     uses: ./.github/workflows/test.yml
+    needs: call-install-dependencies
 
   generate-documentation:
     name: Generate Documentation Job
     runs-on: ubuntu-latest
+    needs: call-test
     steps:
       - name: Echo success
         run: echo "success!!"

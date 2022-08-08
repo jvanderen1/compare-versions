@@ -1,4 +1,5 @@
-name: Test Workflow
+name: "Test Workflow"
+description: "Runs various tests including lint, pretty, types, and unit."
 
 on:
   - workflow_call

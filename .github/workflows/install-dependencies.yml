@@ -1,13 +1,9 @@
 name: Install Dependencies Workflow
-
-on:
-  - workflow_call
-
-jobs:
-  install-dependencies:
-    name: Install Dependencies Job
-    runs-on: ubuntu-latest
-    steps:
+description: Installs all pnpm packages needed.
+    
+runs:
+  using: "composite"
+  steps:
       - name: Checkout
         uses: actions/checkout@v3
 
