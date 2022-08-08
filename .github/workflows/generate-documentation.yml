@@ -15,7 +15,7 @@ jobs:
     needs: call-install-dependencies
 
   generate-documentation:
-    name: Generate Documentation Job
+    name: "Generate Documentation Job"
     runs-on: ubuntu-latest
     needs: call-test
     steps:

@@ -1,25 +1,25 @@
 name: Install Dependencies Workflow
-description: Installs all pnpm packages needed.
+description: "Installs all pnpm packages needed."
     
 runs:
   using: "composite"
   steps:
-      - name: Checkout
+      - name: "Checkout"
         uses: actions/checkout@v3
 
-      - name: Install pnpm
+      - name: "Install pnpm"
         uses: pnpm/action-setup@v2.0.1
         id: pnpm-install
         with:
           version: 7
           run_install: false
 
-      - name: Get pnpm store directory
+      - name: "Get pnpm store directory"
         id: pnpm-cache
         run: |
           echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
 
-      - name: Setup pnpm cache
+      - name: "Setup pnpm cache"
         uses: actions/cache@v3
         with:
           path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
@@ -27,5 +27,5 @@ runs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Install dependencies
+      - name: "Install dependencies"
         run: pnpm install
