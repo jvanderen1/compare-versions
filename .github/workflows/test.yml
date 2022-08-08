@@ -4,20 +4,18 @@ on:
   - workflow_call
 
 jobs:
-  # call-install-dependencies-action:
-  #   name: 'Install Dependencies Action'
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - uses: ./.github/actions/install-dependencies
+  call-install-dependencies-action:
+    name: 'Install Dependencies Action'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/install-dependencies
 
   pretty-check:
     name: 'Pretty Test Job'
     runs-on: ubuntu-latest
     needs: call-install-dependencies-action
     steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/actions/install-dependencies
       - name: 'Run pretty check'
         run: pnpm run pretty:check
 
@@ -26,8 +24,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: call-install-dependencies-action
     steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/actions/install-dependencies
       - name: 'Run test types'
         run: pnpm run test:types
 
@@ -36,8 +32,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: call-install-dependencies-action
     steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/actions/install-dependencies
       - name: 'Run test unit'
         run: pnpm run test:unit
 
@@ -46,7 +40,5 @@ jobs:
     runs-on: ubuntu-latest
     needs: call-install-dependencies-action
     steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/actions/install-dependencies
       - name: 'Run lint check'
         run: pnpm run lint:check
