@@ -20,7 +20,7 @@ jobs:
   generate-documentation:
     name: 'Generate Documentation Job'
     runs-on: ubuntu-latest
-    needs: call-install-dependencies
+    needs: call-install-dependencies-action
     steps:
       - name: Echo success
         run: echo "success!!"
