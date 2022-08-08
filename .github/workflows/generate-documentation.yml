@@ -8,6 +8,7 @@ on:
 
 jobs:
   call-install-dependencies:
+    runs-on: ubuntu-latest
     uses: ./.github/workflows/install-dependencies.yml
 
   # call-test:
