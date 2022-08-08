@@ -6,7 +6,7 @@ on:
 
 jobs:
   call-install-dependencies:
-    uses: ./.github/actions/install-dependencies.yml
+    uses: ./.github/actions/install-dependencies.yml@v1
 
   pretty-check:
     name: 'Pretty Test Job'
