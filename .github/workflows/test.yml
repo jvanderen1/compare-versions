@@ -1,5 +1,5 @@
-name: "Test Workflow"
-description: "Runs various tests including lint, pretty, types, and unit."
+name: 'Test Workflow'
+description: 'Runs various tests including lint, pretty, types, and unit.'
 
 on:
   - workflow_call
@@ -8,33 +8,33 @@ jobs:
   call-install-dependencies:
     uses: ./.github/workflows/install-dependencies.yml
 
-  pretty-check: 
-    name: "Pretty Test Job"
+  pretty-check:
+    name: 'Pretty Test Job'
     runs-on: ubuntu-latest
     needs: call-install-dependencies
     steps:
-      - name: "Run pretty check"
+      - name: 'Run pretty check'
         run: pnpm run pretty:check
 
   types-test:
-    name: "Types Test Job"
+    name: 'Types Test Job'
     runs-on: ubuntu-latest
     needs: call-install-dependencies
     steps:
-      - name: "Run test types"
+      - name: 'Run test types'
         run: pnpm run test:types
 
   unit-test:
-    name: "Unit Test Job"
+    name: 'Unit Test Job'
     runs-on: ubuntu-latest
     steps:
-      - name: "Run test unit"
+      - name: 'Run test unit'
         run: pnpm run test:unit
 
   lint-test:
-    name: "Lint Test Job"
+    name: 'Lint Test Job'
     runs-on: ubuntu-latest
     needs: call-install-dependencies
     steps:
-      - name: "Run lint check"
+      - name: 'Run lint check'
         run: pnpm run lint:check

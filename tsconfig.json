@@ -10,6 +10,6 @@
   "typedocOptions": {
     "darkHighlightTheme": "dark-plus",
     "entryPoints": ["src/"],
-    "out": "docs",
-}
+    "out": "docs"
+  }
 }

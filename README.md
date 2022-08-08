@@ -3,6 +3,7 @@
 [//]: # '[![npm bundle size (minified + gzip)](https://img.shields.io/bundlephobia/minzip/compare-versions.svg)](https://bundlephobia.com/result?p=compare-versions)'
 
 Compare [semver](https://semver.org/) version strings to find greater, equal or lesser.
+
 - Runs in any Javascript environment.
 - No dependencies.
 - Tiny build size.
@@ -28,8 +29,8 @@ Please visit ...
 
 The following bundles are generated:
 
-| Module Type | File Name |
-| --- | --- |
-| ESM | compare-versions.mjs |
-| CommonJS | compare-versions.cjs |
-| UMD | compare-versions.umd.js |
+| Module Type | File Name               |
+| ----------- | ----------------------- |
+| ESM         | compare-versions.mjs    |
+| CommonJS    | compare-versions.cjs    |
+| UMD         | compare-versions.umd.js |
