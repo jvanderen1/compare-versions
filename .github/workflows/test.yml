@@ -12,7 +12,6 @@ jobs:
       - uses: ./.github/actions/install-dependencies
       - name: 'Run pretty check'
         run: pnpm run pretty:check
-      - run: exit 1
 
   types-test:
     name: 'Types Test Job'
