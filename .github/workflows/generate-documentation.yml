@@ -21,10 +21,10 @@ jobs:
       - name: 'Install Dependencies Action'
         uses: ./.github/actions/install-dependencies
 
-      - name: Run Typedoc
-        run: pnpm run doc
+      - name: 'Run Typedoc'
+        run: pnpm run docs
 
-      - name: Deploy Documentation
+      - name: 'Deploy Documentation'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: docs
