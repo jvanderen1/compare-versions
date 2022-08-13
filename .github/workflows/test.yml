@@ -8,6 +8,7 @@ jobs:
     name: 'Pretty Test Job'
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - uses: ./.github/actions/install-dependencies
       - name: 'Run pretty check'
         run: pnpm run pretty:check
@@ -16,6 +17,7 @@ jobs:
     name: 'Types Test Job'
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - uses: ./.github/actions/install-dependencies
       - name: 'Run test types'
         run: pnpm run test:types
@@ -24,6 +26,7 @@ jobs:
     name: 'Unit Test Job'
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - uses: ./.github/actions/install-dependencies
       - name: 'Run test unit'
         run: pnpm run test:unit
@@ -32,6 +35,7 @@ jobs:
     name: 'Lint Test Job'
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - uses: ./.github/actions/install-dependencies
       - name: 'Run lint check'
         run: pnpm run lint:check
