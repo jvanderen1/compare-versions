@@ -24,7 +24,26 @@ jobs:
       - name: 'Run Typedoc'
         run: pnpm run docs
 
-      - name: 'Deploy Documentation'
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: docs
+      # - name: 'Deploy Documentation'
+      #   uses: JamesIves/github-pages-deploy-action@v4
+      #   with:
+      #     folder: docs
+
+  deploy:
+    name: 'Deploy Documentation Job'
+    needs: generate-documentation
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    # Specify runner + deployment step
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Deploy to GitHub Pages'
+        id: deployment
+        uses: actions/deploy-pages@v1
