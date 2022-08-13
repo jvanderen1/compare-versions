@@ -14,13 +14,13 @@ runs:
         version: 7
         run_install: false
 
-    - name: 'Get pnpm store directory'
+    - name: 'Get pnpm Store Directory'
       shell: bash
       id: pnpm-cache
       run: |
         echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
 
-    - name: 'Setup pnpm cache'
+    - name: 'Setup pnpm Cache'
       uses: actions/cache@v3
       with:
         path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
@@ -28,6 +28,6 @@ runs:
         restore-keys: |
           ${{ runner.os }}-pnpm-store-
 
-    - name: 'Install dependencies'
+    - name: 'Install Dependencies'
       shell: bash
       run: pnpm install
