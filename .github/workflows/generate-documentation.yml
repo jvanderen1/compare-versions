@@ -15,5 +15,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: call-test-workflow
     steps:
-      - name: Echo success
-        run: echo "success!!"
+      - name: Run Typedoc
+        run: pnpm run doc
+
+      - name: Deploy Documentation
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: docs
