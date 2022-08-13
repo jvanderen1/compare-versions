@@ -6,17 +6,9 @@ on:
       - main
 
 jobs:
-  # call-install-dependencies-action:
-  #   name: 'Install Dependencies Action'
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - uses: ./.github/actions/install-dependencies
-
   call-test-workflow:
     name: "Test Workflow"
     uses: ./.github/workflows/test.yml
-    # needs: call-install-dependencies-action
 
   generate-documentation:
     name: 'Generate Documentation Job'
