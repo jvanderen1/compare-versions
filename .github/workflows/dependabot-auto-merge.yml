@@ -1,9 +1,9 @@
 name: 'Dependabot Auto-Merge Workflow'
 
 on:
-  push
-  # branches:
-  #   - 'dependabot/*'
+  push:
+    branches:
+      - 'dependabot/*'
 
 permissions:
   contents: write
