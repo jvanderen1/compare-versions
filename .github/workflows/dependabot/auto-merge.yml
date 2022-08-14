@@ -1,9 +1,11 @@
-name: 'Dependabot Auto-Merge'
-on: pull_request
+name: 'Dependabot Auto-Merge Workflow'
 
-permissions:
-  contents: write
-  pull-requests: write
+on:
+  pull_request:
+    branches:
+      - 'dependabot/**'
+
+permissions: read-all
 
 jobs:
   call-test-workflow:
@@ -11,6 +13,7 @@ jobs:
     uses: ./.github/workflows/test.yml
 
   dependabot:
+    name: 'Dependabot Job'
     runs-on: ubuntu-latest
     if: ${{ github.actor == 'dependabot[bot]' }}
     needs: call-test-workflow
