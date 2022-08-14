@@ -22,6 +22,7 @@ runs:
 
     - name: 'Setup pnpm Cache'
       uses: actions/cache@v3
+      id: cache-dependencies
       with:
         path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
         key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -29,5 +30,6 @@ runs:
           ${{ runner.os }}-pnpm-store-
 
     - name: 'Install Dependencies'
+      if: steps.cache-dependencies.outputs.cache-hit != 'true'
       shell: bash
       run: pnpm install
