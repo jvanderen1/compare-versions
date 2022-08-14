@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+# concurrency:
+#   group: "pages"
+#   cancel-in-progress: true
+
 jobs:
   call-test-workflow:
     name: 'Test Workflow Job'
@@ -38,10 +42,11 @@ jobs:
       pages: write
       id-token: write
 
-    # environment:
-    #   name: github-pages
-    #   url: ${{ steps.deployment.outputs.page_url }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: 'Deploy to GitHub Pages'
+        id: deployment
         uses: actions/deploy-pages@v1
