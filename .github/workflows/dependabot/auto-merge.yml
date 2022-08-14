@@ -2,8 +2,8 @@ name: 'Dependabot Auto-Merge Workflow'
 
 on:
   pull_request:
-    branches:
-      - 'dependabot/**'
+    types: [synchronize]
+    branches: ['dependabot/**']
 
 permissions: read-all
 
