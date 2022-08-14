@@ -1,4 +1,4 @@
-name: 'Dependabot Update Lockfile Workflow'
+name: 'Dependabot Auto-Merge Workflow'
 
 on:
   pull_request:
