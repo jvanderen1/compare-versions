@@ -48,9 +48,6 @@
     "test:unit": "jest --config jest.config.json"
   },
   "devDependencies": {
-    "@parcel/compressor-brotli": "^2.7.0",
-    "@parcel/compressor-gzip": "^2.7.0",
-    "@parcel/config-default": "^2.7.0",
     "@parcel/core": "2.7.0",
     "@parcel/packager-ts": "2.7.0",
     "@parcel/transformer-typescript-types": "2.7.0",
