@@ -1,36 +1,18 @@
 name: 'Dependabot Auto-Merge Workflow'
 
-on:
-  pull_request:
-    branches:
-      - 'dependabot/**'
+on: workflow_call
 
 permissions:
   contents: write
   pull-requests: write
 
 jobs:
-  call-test-workflow:
-    name: 'Test Workflow Job'
-    uses: ./.github/workflows/test.yml
-
-  update-lockfile:
-    name: 'Update Lockfile Job'
+  auto-merge:
+    name: 'Auto-Merge Job'
     runs-on: ubuntu-latest
-    if: ${{ failure() }}
-    needs: call-test-workflow
-    steps:
-      - name: 'Update Lockfile Action'
-        uses: ./.github/actions/update-lockfile
-
-      - name: 'Test Workflow Job'
-        uses: ./.github/workflows/test.yml
-
-  dependabot:
-    name: 'Dependabot Job'
-    runs-on: ubuntu-latest
-    if: ${{ always() && contains(join(needs.*.result, ','), 'success') && github.actor == 'dependabot[bot]' }}
-    needs: [call-test-workflow, update-lockfile]
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - name: 'Dependabot Metadata'
         id: metadata

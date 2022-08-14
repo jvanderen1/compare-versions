@@ -1,0 +1,31 @@
+name: 'Pull Request Workflow'
+
+on:
+  pull_request:
+    branches: ['main']
+
+jobs:
+  install-dependencies:
+    name: 'Install Dependencies Job'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout Action'
+        uses: actions/checkout@v3
+
+      - name: 'Install Dependencies Action'
+        uses: ./.github/actions/install-dependencies
+
+      - name: 'Update Lockfile Action'
+        if: ${{ failure() && github.actor == 'dependabot[bot]' }}
+        uses: ./.github/actions/update-lockfile
+
+  call-test-workflow:
+    name: 'Test Workflow Job'
+    needs: install-dependencies
+    uses: ./.github/workflows/test.yml
+
+  call-dependabot-auto-merge-workflow:
+    name: 'Dependabot Auto-Merge Workflow Job'
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    needs: call-test-workflow
+    uses: ./.github/workflows/dependabot-auto-merge.yml
