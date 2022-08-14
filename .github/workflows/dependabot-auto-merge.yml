@@ -15,29 +15,42 @@ permissions:
 jobs:
   call-test-workflow:
     name: 'Test Workflow Job'
-    uses: ./.github/workflows/test.yml
-
-  # Needed since Dependabot doesn't automatically update PNPM lock file.
-  update-lockfile:
-    name: 'Update Lockfile Job'
     runs-on: ubuntu-latest
-    if: ${{ failure() }}
-    needs: call-test-workflow
     steps:
-      - name: 'Checkout'
+      - name: 'Checkout Action'
         uses: actions/checkout@v3
 
+      - name: 'Install Dependencies Action'
+        uses: ./.github/actions/install-dependencies
+
       - name: 'Update Lockfile Action'
+        if: failure()
         uses: ./.github/actions/update-lockfile
 
       - name: 'Test Workflow Job'
         uses: ./.github/workflows/test.yml
 
+  # Needed since Dependabot doesn't automatically update PNPM lock file.
+  # update-lockfile:
+  #   name: 'Update Lockfile Job'
+  #   runs-on: ubuntu-latest
+  #   if: ${{ failure() }}
+  #   needs: call-test-workflow
+  #   steps:
+  #     - name: 'Checkout'
+  #       uses: actions/checkout@v3
+
+  #     - name: 'Update Lockfile Action'
+  #       uses: ./.github/actions/update-lockfile
+
+  #     - name: 'Test Workflow Job'
+  #       uses: ./.github/workflows/test.yml
+
   dependabot:
     name: 'Dependabot Job'
     runs-on: ubuntu-latest
-    if: ${{ always() && contains(join(needs.*.result, ','), 'success') && github.actor == 'dependabot[bot]' }}
-    needs: [call-test-workflow, update-lockfile]
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    needs: call-test-workflow
     steps:
       - name: 'Dependabot Metadata'
         id: metadata
