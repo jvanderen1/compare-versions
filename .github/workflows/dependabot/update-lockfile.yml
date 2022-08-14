@@ -2,12 +2,11 @@ name: 'Dependabot Update Lockfile Workflow'
 
 on:
   pull_request:
+    types: [opened]
     branches:
       - 'dependabot/**'
 
-permissions:
-  contents: write
-  pull-requests: write
+permissions: read-all
 
 jobs:
   update-lockfile:
