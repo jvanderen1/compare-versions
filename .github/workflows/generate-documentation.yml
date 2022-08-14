@@ -24,14 +24,10 @@ jobs:
       - name: 'Run Typedoc'
         run: pnpm run docs
 
-      # - name: 'Tar Docs'
-      #   run: tar -czvf docs.tar.gz docs
-
       - name: 'Upload Github Pages Artifact'
         uses: actions/upload-pages-artifact@v1
         with:
           path: ./docs
-          if-no-files-found: error
 
   deploy:
     name: 'Deploy Documentation Job'
