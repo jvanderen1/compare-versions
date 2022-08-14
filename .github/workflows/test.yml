@@ -1,7 +1,6 @@
 name: 'Test Workflow'
 
-on:
-  - workflow_call
+on: workflow_call
 
 jobs:
   pretty-check:

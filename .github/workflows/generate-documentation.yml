@@ -2,8 +2,7 @@ name: 'Generate Documentation Workflow'
 
 on:
   push:
-    branches:
-      - main
+    branches: ['main']
 
 concurrency:
   group: ${{ github.workflow }}
