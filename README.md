@@ -15,17 +15,17 @@ Supports the full semver specification including versions with different number 
 - Any leading `v` is ignored, e.g. `v1.0` is interpreted as `1.0`.
 - Leading zero is ignored, e.g. `1.01.1` is interpreted as `1.1.1`.
 
-## Install ⬇️
+## ⬇️ Install
 
 ```shell
 npm install @jvanderen1/compare-versions
 ```
 
-## Documentation 📕
+## 📕 Documentation
 
-Please visit ...
+Please visit https://jvanderen1.github.io/compare-versions/
 
-## Compatability 🤝
+## 🤝 Compatability
 
 The following bundles are generated:
 
