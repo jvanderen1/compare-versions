@@ -31,7 +31,7 @@
   "scripts": {
     "build": "parcel build --no-source-maps",
     "clean": "npm-run-all clean:* --parallel",
-    "clean:docs": "rimraf ./doc/",
+    "clean:docs": "rimraf ./docs/",
     "clean:dist": "rimraf ./dist/",
     "clean:parcel-cache": "rimraf ./.parcel-cache/",
     "clean:types": "tsc --build --clean",
