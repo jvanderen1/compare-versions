@@ -48,9 +48,9 @@
     "test:unit": "jest --config jest.config.json"
   },
   "devDependencies": {
-    "@parcel/core": "2.6.2",
+    "@parcel/core": "2.7.0",
     "@parcel/packager-ts": "2.7.0",
-    "@parcel/transformer-typescript-types": "2.6.2",
+    "@parcel/transformer-typescript-types": "2.7.0",
     "@types/jest": "28.1.6",
     "@typescript-eslint/eslint-plugin": "5.30.6",
     "@typescript-eslint/parser": "5.33.0",
