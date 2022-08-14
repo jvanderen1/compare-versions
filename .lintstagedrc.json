@@ -1,3 +1,4 @@
 {
-  "*": ["pnpm run lint --fix", "pnpm run pretty --write"]
+  "*": ["pnpm run pretty --write"],
+  "*.ts": ["pnpm run lint --fix"]
 }

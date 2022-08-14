@@ -36,7 +36,7 @@
     "clean:parcel-cache": "rimraf ./.parcel-cache/",
     "clean:types": "tsc --build --clean",
     "docs": "typedoc",
-    "lint": "eslint --cache --ignore-path .gitignore --ignore-path .prettierignore",
+    "lint": "eslint --cache --ignore-path .gitignore --ext .ts",
     "lint:check": "pnpm run lint .",
     "lint:fix": "pnpm run lint --fix .",
     "prepare": "husky install",
