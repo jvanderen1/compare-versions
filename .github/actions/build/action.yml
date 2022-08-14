@@ -10,6 +10,14 @@ runs:
     - name: 'Install Dependencies'
       uses: ./.github/actions/install-dependencies
 
+    - name: 'Setup Cache'
+      id: cache-build
+      uses: actions/cache@v3
+      with:
+        path: dist
+        key: ${{ runner.os }}-${{ github.sha }}-build
+
     - name: 'Run build'
       shell: bash
+      if: steps.cache-build.outputs.cache-hit != 'true'
       run: pnpm build
