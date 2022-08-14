@@ -15,8 +15,9 @@ jobs:
       - name: 'Install Dependencies Action'
         uses: ./.github/actions/install-dependencies
 
+      # && github.actor == 'dependabot[bot]'
       - name: 'Update Lockfile Action'
-        if: ${{ failure() }}
+        if: failure()
         uses: ./.github/actions/update-lockfile
 
   call-test-workflow:
