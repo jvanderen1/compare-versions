@@ -1,4 +1,4 @@
-name: 'CodeQL'
+name: 'CodeQL Workflow'
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   analyze:
-    name: 'Analyze'
+    name: 'Analyze Job'
     runs-on: ubuntu-latest
     permissions:
       actions: read
