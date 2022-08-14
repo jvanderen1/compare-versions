@@ -1,7 +1,7 @@
 name: 'Dependabot Auto-Merge Workflow'
 
 on:
-  push:
+  pull_request:
     branches:
       - 'dependabot/**'
 
@@ -14,11 +14,23 @@ jobs:
     name: 'Test Workflow Job'
     uses: ./.github/workflows/test.yml
 
+  update-lockfile:
+    name: 'Update Lockfile Job'
+    runs-on: ubuntu-latest
+    if: ${{ failure() }}
+    needs: call-test-workflow
+    steps:
+      - name: 'Update Lockfile Action'
+        uses: ./.github/actions/update-lockfile
+
+      - name: 'Test Workflow Job'
+        uses: ./.github/workflows/test.yml
+
   dependabot:
     name: 'Dependabot Job'
     runs-on: ubuntu-latest
-    if: ${{ github.actor == 'dependabot[bot]' }}
-    needs: call-test-workflow
+    if: ${{ always() && contains(join(needs.*.result, ','), 'success') && github.actor == 'dependabot[bot]' }}
+    needs: [call-test-workflow, update-lockfile]
     steps:
       - name: 'Dependabot Metadata'
         id: metadata
@@ -26,7 +38,7 @@ jobs:
         with:
           github-token: '${{ secrets.GITHUB_TOKEN }}'
 
-      - name: 'Enable auto-merge for Dependabot PRs'
+      - name: 'Enable Auto-Merge for Dependabot PRs'
         if: ${{contains(steps.metadata.outputs.dependency-names, 'my-dependency') && steps.metadata.outputs.update-type == 'version-update:semver-patch'}}
         run: gh pr merge --auto --merge "$PR_URL"
         env:
