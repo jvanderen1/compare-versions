@@ -1,0 +1,15 @@
+name: 'Build Action'
+description: 'Builds project.'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: 'Checkout'
+      uses: actions/checkout@v3
+
+    - name: 'Install Dependencies'
+      uses: ./.github/actions/install-dependencies
+
+    - name: 'Run build'
+      shell: bash
+      run: pnpm build
