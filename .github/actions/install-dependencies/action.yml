@@ -28,6 +28,6 @@ runs:
         restore-keys: |
           ${{ runner.os }}-pnpm-store-
 
-    - name: 'Install Dependencies'
+    - name: 'Install Dependencies2'
       shell: bash
       run: pnpm install
