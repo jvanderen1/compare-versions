@@ -1,10 +1,12 @@
-name: 'Test Workflow'
+name: 'Build And Test'
 
-on: workflow_call
+on:
+  - pull_request
+  - workflow_call
 
 jobs:
   pretty-check:
-    name: 'Pretty Test Job'
+    name: 'Pretty Test'
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'
@@ -17,7 +19,7 @@ jobs:
         run: pnpm run pretty:check
 
   types-test:
-    name: 'Types Test Job'
+    name: 'Types Test'
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'
@@ -30,7 +32,7 @@ jobs:
         run: pnpm run test:types
 
   unit-test:
-    name: 'Unit Test Job'
+    name: 'Unit Test'
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'
@@ -43,7 +45,7 @@ jobs:
         run: pnpm run test:unit --ci
 
   lint-test:
-    name: 'Lint Test Job'
+    name: 'Lint Test'
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'
@@ -54,3 +56,17 @@ jobs:
 
       - name: 'Run lint check'
         run: pnpm run lint:check
+
+  build:
+    name: 'Build'
+    runs-on: ubuntu-latest
+    needs: [pretty-check, types-test, unit-test, lint-test]
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v3
+
+      - name: 'Install Dependencies Action'
+        uses: ./.github/actions/install-dependencies
+
+      - name: 'Run build'
+        run: pnpm build

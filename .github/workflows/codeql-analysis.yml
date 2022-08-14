@@ -1,4 +1,4 @@
-name: 'CodeQL Workflow'
+name: 'CodeQL'
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   analyze:
-    name: 'Analyze Job'
+    name: 'Analyze'
     runs-on: ubuntu-latest
     permissions:
       actions: read
@@ -26,7 +26,6 @@ jobs:
       - name: 'Checkout'
         uses: actions/checkout@v3
 
-      # Initializes the CodeQL tools for scanning.
       - name: 'Initialize CodeQL'
         uses: github/codeql-action/init@v2
         with:
