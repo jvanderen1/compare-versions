@@ -40,7 +40,7 @@
     "lint:check": "pnpm run lint .",
     "lint:fix": "pnpm run lint --fix .",
     "prepare": "husky install",
-    "pretty": "prettier --ignore-path .gitignore --ignore-path .prettierignore",
+    "pretty": "prettier --ignore-path .gitignore,.prettierignore",
     "pretty:check": "pnpm run pretty --check .",
     "pretty:fix": "pnpm run pretty --write .",
     "test": "npm-run-all test:*",
