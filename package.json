@@ -53,7 +53,7 @@
     "@parcel/transformer-typescript-types": "2.6.2",
     "@types/jest": "28.1.6",
     "@typescript-eslint/eslint-plugin": "5.30.6",
-    "@typescript-eslint/parser": "5.30.6",
+    "@typescript-eslint/parser": "5.33.0",
     "eslint": "8.20.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-import": "2.26.0",
