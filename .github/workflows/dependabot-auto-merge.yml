@@ -1,11 +1,10 @@
 name: 'Dependabot Auto-Merge Workflow'
 
 on:
-  push
-  # - pull_request:
-  #   types: [synchronize]
-  #   branches:
-  #     - 'dependabot/*'
+  pull_request:
+    types: [synchronize]
+    branches:
+      - 'dependabot/*'
 
 permissions:
   contents: write
