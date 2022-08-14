@@ -9,19 +9,19 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  call-test-workflow:
-    name: 'Test Workflow Job'
-    uses: ./.github/workflows/test.yml
+  call-build-and-test-workflow:
+    name: 'Build and Test'
+    uses: ./.github/workflows/build-and-test.yml
 
   generate-documentation:
-    name: 'Generate Documentation Job'
+    name: 'Generate Documentation'
     runs-on: ubuntu-latest
-    needs: call-test-workflow
+    needs: call-build-and-test-workflow
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v3
 
-      - name: 'Install Dependencies Action'
+      - name: 'Install Dependencies'
         uses: ./.github/actions/install-dependencies
 
       - name: 'Run Typedoc'
@@ -33,7 +33,7 @@ jobs:
           path: ./docs
 
   deploy:
-    name: 'Deploy Documentation Job'
+    name: 'Deploy Documentation'
     runs-on: ubuntu-latest
     needs: generate-documentation
 
