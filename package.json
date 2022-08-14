@@ -48,7 +48,7 @@
     "test:unit": "jest --config jest.config.json"
   },
   "devDependencies": {
-    "@parcel/core": "2.6.2",
+    "@parcel/core": "2.7.0",
     "@parcel/packager-ts": "2.6.2",
     "@parcel/transformer-typescript-types": "2.6.2",
     "@types/jest": "28.1.6",
