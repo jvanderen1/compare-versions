@@ -2,8 +2,7 @@ name: 'Dependabot Auto-Merge Workflow'
 
 on:
   pull_request:
-    branches:
-      - 'dependabot/**'
+    branches: ['dependabot/**']
 
 permissions:
   contents: write
