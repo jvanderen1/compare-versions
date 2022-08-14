@@ -15,9 +15,11 @@ runs:
         ref: ${{ github.event.pull_request.head.ref }}
 
     - name: 'Update Lockfile'
+      shell: bash
       run: pnpm i --lockfile-only
 
     - name: 'Commit New Lockfile'
+      shell: bash
       run: |
         git config --global user.name github-actions[bot]
         git config --global user.email github-actions[bot]@users.noreply.github.com
