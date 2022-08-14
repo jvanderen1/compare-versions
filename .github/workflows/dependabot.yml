@@ -1,4 +1,5 @@
 name: 'Dependabot Auto-Merge'
+
 on:
   pull_request:
     branches:
@@ -9,8 +10,38 @@ permissions:
   pull-requests: write
 
 jobs:
+  update-lockfile:
+    name: 'Update Lockfile'
+    runs-on: ubuntu-latest
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    permissions:
+      pull-requests: write
+      contents: write
+    steps:
+      - name: 'Setup'
+        uses: pnpm/action-setup@v2
+        with:
+          version: ^7
+
+      - name: 'Checkout'
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: 'Install Dependencies'
+        run: pnpm i --lockfile-only
+
+      - name: 'Update Lockfile'
+        run: |
+          git config --global user.name github-actions[bot]
+          git config --global user.email github-actions[bot]@users.noreply.github.com
+          git add pnpm-lock.yaml
+          git commit -m "Update pnpm-lock.yaml"
+          git push
+
   call-test-workflow:
     name: 'Test Workflow Job'
+    needs: update-lockfile
     uses: ./.github/workflows/test.yml
 
   dependabot:
