@@ -3,8 +3,10 @@ name: 'Pull Request Workflow'
 on:
   pull_request:
     branches: ['main']
-  push:
-    branches: ['dependabot/**']
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   install-dependencies:
