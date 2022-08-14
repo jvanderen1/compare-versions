@@ -1,4 +1,4 @@
 {
-  "*": ["pnpm run pretty --write"],
+  "*.{ts,yml,json,md}": ["pnpm run pretty --write"],
   "*.ts": ["pnpm run lint --fix"]
 }
