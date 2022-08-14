@@ -17,6 +17,7 @@ jobs:
     name: 'Test Workflow Job'
     uses: ./.github/workflows/test.yml
 
+  # Needed since Dependabot doesn't automatically update PNPM lock file.
   update-lockfile:
     name: 'Update Lockfile Job'
     runs-on: ubuntu-latest
