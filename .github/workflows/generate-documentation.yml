@@ -10,7 +10,7 @@ concurrency:
 
 jobs:
   call-test-workflow:
-    name: 'Test Workflow Job'
+    # name: 'Test Workflow Job'
     uses: ./.github/workflows/test.yml
 
   generate-documentation:
