@@ -4,9 +4,6 @@ on:
   pull_request:
     branches:
       - 'dependabot/**'
-  push:
-    branches:
-      - 'dependabot/**'
 
 permissions:
   contents: write
@@ -35,7 +32,7 @@ jobs:
   dependabot:
     name: 'Dependabot Job'
     runs-on: ubuntu-latest
-    # if: ${{ github.actor == 'dependabot[bot]' }}
+    if: ${{ github.actor == 'dependabot[bot]' }}
     needs: call-test-workflow
     steps:
       - name: 'Dependabot Metadata'
