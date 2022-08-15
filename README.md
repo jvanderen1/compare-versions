@@ -1,8 +1,7 @@
 ![Build](https://github.com/jvanderen1/compare-versions/actions/workflows/build.yml/badge.svg?branch=main&event=push)
 ![Test](https://github.com/jvanderen1/compare-versions/actions/workflows/test.yml/badge.svg?branch=main&event=push)
 [![Coverage Status](https://coveralls.io/repos/github/jvanderen1/compare-versions/badge.svg?branch=main)](https://coveralls.io/github/jvanderen1/compare-versions?branch=main)
-
-[//]: # '[![npm bundle size (minified + gzip)](https://img.shields.io/bundlephobia/minzip/compare-versions.svg)](https://bundlephobia.com/result?p=compare-versions)'
+[![npm bundle size (minified + gzip)](https://img.shields.io/bundlephobia/minzip/@jvanderen1compare-versions.svg)](https://bundlephobia.com/package/@jvanderen1/compare-versions)
 
 Compare [semver](https://semver.org/) version strings to find greater, equal or lesser.
 
