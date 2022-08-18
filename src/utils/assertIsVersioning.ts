@@ -1,9 +1,9 @@
-import { VERSIONING } from '../constants'
+import { isVersioning } from './isVersioning'
 
 import type { Versioning } from '../types'
 
-export const assertIsVersioning = (val: unknown): asserts val is Versioning => {
-  if (!VERSIONING.includes(val as Versioning)) {
+export function assertIsVersioning(val: unknown): asserts val is Versioning {
+  if (!isVersioning(val)) {
     throw new Error(`${val} is not of type Versioning`)
   }
 }
