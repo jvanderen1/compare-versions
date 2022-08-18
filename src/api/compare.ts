@@ -1,4 +1,4 @@
-import { OPERATOR_TO_EQUALITY_INTEGER } from '../constants'
+import { COMPARISON_OPERATOR_TO_COMPARISON_INTEGER } from '../constants'
 
 import { compareVersions } from './'
 
@@ -26,5 +26,5 @@ export const compare = (
 ) => {
   const res = compareVersions(v1, v2)
 
-  return OPERATOR_TO_EQUALITY_INTEGER[operator].includes(res)
+  return COMPARISON_OPERATOR_TO_COMPARISON_INTEGER[operator].includes(res)
 }

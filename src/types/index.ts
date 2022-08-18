@@ -1,5 +1,5 @@
 export type { ComparisonInteger } from './ComparisonInteger'
 export type { ComparisonOperator } from './ComparisonOperator'
-export type { OperatorToEqualityInteger } from './OperatorToEqualityInteger'
+export type { ComparisonOperatorToComparisonInteger } from './ComparisonOperatorToComparisonInteger'
 export type { Versioning } from './Versioning'
 export type { Wildcard } from './Wildcard'

@@ -1,6 +1,6 @@
 export { COMPARISON_INTEGER } from './comparisonInteger'
 export { COMPARISION_OPERATORS } from './comparisonOperators'
-export { OPERATOR_TO_EQUALITY_INTEGER } from './operatorToEqualityInteger'
+export { COMPARISON_OPERATOR_TO_COMPARISON_INTEGER } from './comparisonOperatorToComparisonInteger'
 export { SEMVER } from './semver'
 export { VERSIONING } from './versioning'
 export { WILDCARDS } from './wildcards'
