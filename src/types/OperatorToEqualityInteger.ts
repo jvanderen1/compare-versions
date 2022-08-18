@@ -1,5 +1,5 @@
-import type { EqualityInteger, ComparisonOperator } from './'
+import type { ComparisonInteger, ComparisonOperator } from './'
 
 export type OperatorToEqualityInteger = {
-  [key in ComparisonOperator]: readonly EqualityInteger[]
+  [key in ComparisonOperator]: readonly ComparisonInteger[]
 }

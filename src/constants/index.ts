@@ -1,4 +1,4 @@
-export { EQUALITY_INTEGER } from './equalityInteger'
+export { COMPARISON_INTEGER } from './comparisonInteger'
 export { COMPARISION_OPERATORS } from './comparisonOperators'
 export { OPERATOR_TO_EQUALITY_INTEGER } from './operatorToEqualityInteger'
 export { SEMVER } from './semver'

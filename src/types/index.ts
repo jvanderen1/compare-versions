@@ -1,4 +1,4 @@
-export type { EqualityInteger } from './EqualityInteger'
+export type { ComparisonInteger } from './ComparisonInteger'
 export type { ComparisonOperator } from './ComparisonOperator'
 export type { OperatorToEqualityInteger } from './OperatorToEqualityInteger'
 export type { Versioning } from './Versioning'
