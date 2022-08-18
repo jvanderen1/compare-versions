@@ -1,3 +1,3 @@
-import { OPERATORS } from '../constants'
+import { COMPARISION_OPERATORS } from '../constants'
 
-export type Operator = typeof OPERATORS[number]
+export type Operator = typeof COMPARISION_OPERATORS[number]

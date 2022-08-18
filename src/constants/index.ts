@@ -1,5 +1,5 @@
 export { EQUALITY_INTEGER } from './equalityInteger'
-export { OPERATORS } from './operators'
+export { COMPARISION_OPERATORS } from './comparisonOperators'
 export { OPERATOR_TO_EQUALITY_INTEGER } from './operatorToEqualityInteger'
 export { SEMVER } from './semver'
 export { VERSIONING } from './versioning'
