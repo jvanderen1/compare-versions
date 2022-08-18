@@ -1,3 +1,4 @@
+import { VERSION } from '../constants'
 import {
   compareSegments,
   compareStrings,
@@ -23,26 +24,31 @@ import type { Version } from '../types'
  * satisfies('10.1.1', '>=10.2.2') // false
  * ```
  *
- * @param v A semantic version.
- * @param r A semantic version range.
- * @returns Whether `v` satisfies `r`.
+ * @param version A version.
+ * @param semanticVersion A semantic version range.
+ * @returns Whether `version` satisfies `semanticVersion`.
  */
-export const satisfies = (v: string, r: string) => {
-  const match = r.match(/^([<>=~^]+)/)
-  const op = <Version>(match ? match[1] : '=')
+export const satisfies = (version: string, semanticVersion: string) => {
+  const matchVersion = semanticVersion.match(/[<>=~^]{1,2}/)
+  const versioning = matchVersion ? matchVersion[0] : '='
 
-  if (isOperator(op)) {
-    return compare(v, r, op)
+  assertIsVersioning(versioning)
+
+  if (isOperator(versioning)) {
+    if (matchVersion) {
+      semanticVersion = semanticVersion.replace(versioning, '')
+    }
+    return compare(version, semanticVersion, versioning)
   }
 
-  const [v1, v2, v3] = validateAndParse(v)
-  const [m1, m2, m3] = validateAndParse(r)
+  const [v1, v2, v3] = validateAndParse(version)
+  const [m1, m2, m3] = validateAndParse(semanticVersion)
 
   if (compareStrings(v1, m1) !== 0) {
     return false
   }
 
-  if (op === '^') {
+  if (versioning === '^') {
     return compareSegments([v2, v3], [m2, m3]) >= 0
   }
 
@@ -51,4 +57,10 @@ export const satisfies = (v: string, r: string) => {
   }
 
   return compareStrings(v3, m3) >= 0
+}
+
+function assertIsVersioning(val: unknown): asserts val is Version {
+  if (!VERSION.includes(val as Version)) {
+    throw new Error(`${val} is not of type Version`)
+  }
 }
