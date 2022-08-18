@@ -1,3 +1,4 @@
+export { assertIsVersioning } from './assertIsVersioning'
 export { compareSegments } from './compareSegments'
 export { compareStrings } from './compareStrings'
 export { indexOrEnd } from './indexOrEnd'

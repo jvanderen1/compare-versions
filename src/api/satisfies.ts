@@ -1,14 +1,12 @@
-import { VERSION } from '../constants'
 import {
   compareSegments,
   compareStrings,
   isOperator,
   validateAndParse,
+  assertIsVersioning,
 } from '../utils'
 
 import { compare } from './'
-
-import type { Version } from '../types'
 
 /**
  * @example
@@ -57,10 +55,4 @@ export const satisfies = (version: string, semanticVersion: string) => {
   }
 
   return compareStrings(v3, m3) >= 0
-}
-
-function assertIsVersioning(val: unknown): asserts val is Version {
-  if (!VERSION.includes(val as Version)) {
-    throw new Error(`${val} is not of type Version`)
-  }
 }
