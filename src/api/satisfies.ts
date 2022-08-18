@@ -27,13 +27,13 @@ import { compare } from './'
  * @returns Whether `version` satisfies `semanticVersion`.
  */
 export const satisfies = (version: string, semanticVersion: string) => {
-  const matchVersion = semanticVersion.match(/[<>=~^]{1,2}/)
-  const versioning = matchVersion ? matchVersion[0] : '='
+  const matchVersioning = semanticVersion.match(/[<>=~^]{1,2}/)
+  const versioning = matchVersioning ? matchVersioning[0] : '='
 
   assertIsVersioning(versioning)
 
   if (isOperator(versioning)) {
-    if (matchVersion) {
+    if (matchVersioning) {
       semanticVersion = semanticVersion.replace(versioning, '')
     }
     return compare(version, semanticVersion, versioning)
