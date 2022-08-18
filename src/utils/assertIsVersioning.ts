@@ -1,4 +1,4 @@
-import { isVersioning } from './isVersioning'
+import { isVersioning } from './'
 
 import type { Versioning } from '../types'
 
