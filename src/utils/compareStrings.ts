@@ -1,8 +1,8 @@
 import { isWildcard, tryParse } from './'
 
-import type { EqualityInteger } from '../types'
+import type { ComparisonInteger } from '../types'
 
-export const compareStrings = (a: string, b: string): EqualityInteger => {
+export const compareStrings = (a: string, b: string): ComparisonInteger => {
   if (isWildcard(a) || isWildcard(b)) {
     return 0
   }

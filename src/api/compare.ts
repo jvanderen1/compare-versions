@@ -1,8 +1,8 @@
-import { OPERATOR_TO_EQUALITY_INTEGER } from '../constants'
+import { COMPARISON_OPERATOR_TO_COMPARISON_INTEGER } from '../constants'
 
 import { compareVersions } from './'
 
-import type { Operator } from '../types'
+import type { ComparisonOperator } from '../types'
 
 /**
  * @example
@@ -19,8 +19,12 @@ import type { Operator } from '../types'
  * @param operator An equality and/or inequality string.
  * @returns Whether the semantic versioning of `v1` and `v2` compared via an `operator` is valid.
  */
-export const compare = (v1: string, v2: string, operator: Operator) => {
+export const compare = (
+  v1: string,
+  v2: string,
+  operator: ComparisonOperator,
+) => {
   const res = compareVersions(v1, v2)
 
-  return OPERATOR_TO_EQUALITY_INTEGER[operator].includes(res)
+  return COMPARISON_OPERATOR_TO_COMPARISON_INTEGER[operator].includes(res)
 }

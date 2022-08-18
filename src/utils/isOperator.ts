@@ -1,7 +1,7 @@
-import { OPERATORS } from '../constants'
+import { COMPARISION_OPERATORS } from '../constants'
 
-import type { Operator } from '../types'
+import type { ComparisonOperator } from '../types'
 
-export const isOperator = (op: unknown): op is Operator => {
-  return OPERATORS.includes(op as Operator)
+export const isOperator = (op: unknown): op is ComparisonOperator => {
+  return COMPARISION_OPERATORS.includes(op as ComparisonOperator)
 }
