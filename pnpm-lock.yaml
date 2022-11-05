@@ -19,7 +19,7 @@ specifiers:
   npm-run-all: 4.1.5
   parcel: 2.7.0
   prettier: 2.7.1
-  typedoc: 0.23.19
+  typedoc: 0.23.20
   typescript: 4.8.4
 
 devDependencies:
@@ -41,7 +41,7 @@ devDependencies:
   npm-run-all: 4.1.5
   parcel: 2.7.0
   prettier: 2.7.1
-  typedoc: 0.23.19_typescript@4.8.4
+  typedoc: 0.23.20_typescript@4.8.4
   typescript: 4.8.4
 
 packages:
@@ -5198,8 +5198,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /typedoc/0.23.19_typescript@4.8.4:
-    resolution: {integrity: sha512-70jPL0GQnSJtgQqI7ifOWxpTXrB3sxc4SWPPRn3K0wdx3txI6ZIT/ZYMF39dNg2Gjmql45cO+cAKXJp0TpqOVA==}
+  /typedoc/0.23.20_typescript@4.8.4:
+    resolution: {integrity: sha512-nfb4Mx05ZZZXux3zPcLuc7+3TVePDW3jTdEBqXdQzJUyEILxoprgPIiTChbvci9crkqNJG9YESmfCptuh9Gn3g==}
     engines: {node: '>= 14.14'}
     hasBin: true
     peerDependencies:
